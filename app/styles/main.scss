@@ -157,6 +157,7 @@ $color-primary-red: rgb(238,
 $color-K-black-I: rgb(61,
   61,
   70);
+$black: #000;
 $color-K-black-II: rgb(51,
   50,
   53);
@@ -649,9 +650,11 @@ $height) {
     text-align: left;
     font: 700 115%/0.875em 'Montserrat';
     letter-spacing: 0.0em; // 0.02em
-    color: $color-K-black-I;
-    /* 'Text Shadow + Ringing-Stroke'    color: rgba(0,10,30,0.25);
-    text-shadow: 1px 1px 0 transparentize($color-page-grey, 0.85), -1px -1px 0 transparentize($color-page-grey, 0.8), 0 0 0 #000, 0 2px 2px rgba(0,10,30,0.08), 1px 4px 8px rgba(0,10,30,0.12);  */
+    //color: $black;
+    color: rgba(35, 35, 35, 1);
+    //text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.125), 1px 3px 4px rgba(0, 0, 0, 0.125), 1px 7px 9px rgba(0, 0, 0, 0.125);
+    // 'Text Shadow + Ringing-Stroke'    color: rgba(0,10,30,0.25);
+    text-shadow: 1px 1px 0 transparentize($color-page-grey, 0.85), -1px -1px 0 transparentize($color-page-grey, 0.8), 0 0 0 #000, 0 2px 2px rgba(0,10,30,0.08), 1px 4px 8px rgba(0,10,30,0.12);
     //  background: white; border-bottom: solid 0.5em white;
     span {
       display: block;
@@ -659,7 +662,7 @@ $height) {
       width: 103.34%;
       height: 0.875em;
       //  letter-spacing: 0.2715em; // 0.233em; // 0.263em;
-      letter-spacing: 0.225em; // 0.263em;
+      //letter-spacing: 0.225em; // 0.263em;
       //  padding-left: 150px;
       //  margin-left: -150px;
       //  background: silver; //hi-lite
@@ -708,6 +711,41 @@ $height) {
     color: rgba(0, 0, 0, 0.6);
   }
 }
+
+.ctas a {
+  cursor: pointer;
+  position: absolute;
+  display: inline-block;
+  bottom: 16.5%;
+  width: 20.66%;
+  font-family:'Montserrat';
+  text-transform: uppercase;
+  height: 5%;
+  box-sizing: border-box;
+  font-size: 18%;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 3.8em;
+  text-align: center;
+  white-space: pre;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.93);
+  background-color: rgba(243, 45, 45, 0.75);
+  transition: all 0.15s cubic-bezier(0.39, 0.575, 0.565, 1);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
+  transition-property: color, background-color;
+}
+
+.ctas a.view {
+  left: 16.66%;
+}
+
+.ctas a.contact {
+  left: 40.66%;
+  color: rgba(0, 0, 0, 0.73);
+  background-color: rgba(255, 255, 255, 0);
+}
+
 
 .SF-text {
   font-family: '/BlinkMacSystemFont', '/Helvetica Neue', '/SF UI Display', 'Proxima Nova', "Gotham", '/San Francisco', Sans-Serif;
@@ -884,12 +922,15 @@ $height) {
 
 //////////// GEO-ABSTRACT Inset-Image  ////////////
 .inset-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 66.666%;
   height: 75%;
   top: 12.5%;
   left: 8.333% * 2;
-  background: $color-inset-lightgrey;
+  background: $color-page-white;
   overflow: hidden;
   opacity: 1;
   // transition: all  1.6s 0.4s  ease(in-out-cubic);
@@ -914,6 +955,10 @@ $height) {
     text-align: center;
     color: black;
     opacity: 0.1;
+  }
+
+  img {
+    width: 200px;
   }
 }
 
@@ -986,11 +1031,11 @@ $height) {
 // ("#Project-Menu-Wrap") SCSS Nesting [START] //
 #Project-Menu-Wrap {
   position: absolute;
-  bottom: 12.5%;
+  bottom: 0;
   left: 8.333% * 2;
   width: 25%;
   height: 12.5%;
-  background: $color-primary-blue;
+  background: #fff;
   z-index: 4;
   &:after {
     display: block;
@@ -1019,7 +1064,7 @@ $height) {
     top: 29%;
     width: 2.35em; //height of container = 75px @45px-em = 1.666em*2 (2.35 = Sq's diagonal)
     height: 2.35em;
-    background: $color-primary-red;
+    background: $color-page-white;
     /* [coral-red] rgba(255, 75, 95, 0.86) */
     transform: rotate(45deg);
     transform-origin: 50% 50%;
@@ -1237,6 +1282,7 @@ $height) {
     margin-top: 0.81em;
   }
   li {
+    list-style: none;
     position: relative;
     top: 0.81em;
     left: 0;
@@ -1277,7 +1323,7 @@ clip-path: polygon(0 0, 10px 7px, 10px 0);
       text-align: left;
       text-decoration: none;
       letter-spacing: 0.05em;
-      color: rgba(255, 255, 255, 1.0);
+      color: $black;
       transition: all 0.25s ease(out-sine);
       transition-property: font-weight, margin-left;
       overflow: hidden;
@@ -1303,7 +1349,7 @@ clip-path: polygon(0 0, 10px 7px, 10px 0);
         margin-left: -3em;
         width: 0px;
         height: 2px;
-        background: rgba(255, 255, 255, 0.5);
+        background: $black;
         transform: translateX(0);
         transform-origin: 50% 50%;
         transition: all 0.3s ease(out-quint)
@@ -1320,7 +1366,7 @@ clip-path: polygon(0 0, 10px 7px, 10px 0);
     &.active a:after {
       transform: translateX(-1em);
       width: 1.5em;
-      background: rgba(255, 255, 255, 0.5);
+      background: $black
     }
   }
 }
